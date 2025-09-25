@@ -2,7 +2,7 @@ NAME = ex01
 
 C++ = c++
 C++FLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -pedantic
-SRC = main.cpp Serializer.cpp
+SRC = main.cpp Serializer.cpp Data.cpp
 
 OBJ = $(SRC:.cpp=.o)
 D = $(OBJ:.o=.d)

@@ -4,7 +4,7 @@
 #include <cmath>
 #include <iomanip>
 
-void convertPseudoLiteral(const std::string &s, int sLenght)
+void ScalarConverter::convertPseudoLiteral(const std::string &s, int sLenght)
 {
     std::cout << "char: impossible" << std::endl;
     std::cout << "int: impossible" << std::endl;
@@ -21,7 +21,7 @@ void convertPseudoLiteral(const std::string &s, int sLenght)
     std::cout << std::endl;
 }
 
-void convertChar(const std::string &s, int sLenght)
+void ScalarConverter::convertChar(const std::string &s, int sLenght)
 {
     (void)sLenght;
 
@@ -42,7 +42,7 @@ void convertChar(const std::string &s, int sLenght)
     std::cout << "double: " << d << ".0" << std::endl;
 }
 
-void convertNumber(const std::string &s)
+void ScalarConverter::convertNumber(const std::string &s)
 {
     char *endptr = NULL;
     double d = std::strtod(s.c_str(), &endptr);
@@ -92,14 +92,14 @@ void convertNumber(const std::string &s)
         std::cout << d << std::endl;
 }
 
-bool isChar(const std::string &s, int count)
+bool ScalarConverter::isChar(const std::string &s, int count)
 {
     if (count == 1 && !isdigit(s.c_str()[0])) return true;
     else if (count == 3 && s.c_str()[0] == '\'' && s.c_str()[2] == '\'') return true;
     else return false;
 }
 
-bool isPseudoLiteral(const std::string &s)
+bool ScalarConverter::isPseudoLiteral(const std::string &s)
 {
     if (s == "-inff" || s == "-inf" || s == "+inff" || s == "+inf" || s == "nanf" || s == "nan") {
         return true;
@@ -107,7 +107,7 @@ bool isPseudoLiteral(const std::string &s)
     else return false;
 }
 
-bool isFloat(const std::string &s, int count)
+bool ScalarConverter::isFloat(const std::string &s, int count)
 {
     bool sign = false;
     if (s[0] == '-' || s[0] == '+') sign = true;
@@ -135,7 +135,7 @@ bool isFloat(const std::string &s, int count)
     return (dot && f);
 }
 
-bool isDouble(const std::string &s, int count)
+bool ScalarConverter::isDouble(const std::string &s, int count)
 {
     bool sign = false;
     if (s[0] == '-' || s[0] == '+') sign = true;
@@ -159,7 +159,7 @@ bool isDouble(const std::string &s, int count)
     return (dot);
 }
 
-bool isInt(const std::string &s, int count)
+bool ScalarConverter::isInt(const std::string &s, int count)
 {
     bool sign = false;
     if (s[0] == '-' || s[0] == '+') sign = true;
